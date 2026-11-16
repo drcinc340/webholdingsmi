@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Web Holdings — Contingency Life Insurance &amp; Custodial Recovery Agreement</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="agreement.css" />
+</head>
+<body>
+
+  <div class="toolbar">
+    <div class="toolbar-inner">
+      <a href="index.html" class="back-link">&larr; Back to Web Holdings</a>
+      <div class="toolbar-inputs">
+        <input type="text" id="inClaimant" maxlength="90" placeholder="Beneficiary / Claimant Name" />
+        <input type="text" id="inPolicyholder" maxlength="90" placeholder="Policyholder / Estate / Company" />
+        <input type="text" id="inAddress" maxlength="130" placeholder="Current Mailing Address" />
+        <input type="number" id="inAmount" class="in-amount" placeholder="Amount ($)" step="0.01" />
+        <input type="number" id="inFee" class="in-fee" placeholder="Fee %" step="1" value="25" />
+      </div>
+      <button type="button" class="print-btn" id="printBtn">Print / Save 1-Page PDF</button>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <div class="letterhead">
+      <div>
+        <div class="lh-brand">Web Holdings</div>
+        <div class="lh-sub">Unclaimed Life Insurance, Estate Benefits &amp; Custodial Audit Recovery</div>
+      </div>
+      <div class="lh-contact">
+        <strong>Adriano Vagnini &amp; Josh Dinverno</strong>, Managing Partners<br />
+        WebHoldingsMI.com &bull; Redford / Metro Detroit, MI 48239 &bull; (313) 588-4864<br />
+        <em>$0.00 Upfront &bull; No Recovery, No Fee &bull; USPTO App. No. 64/197,851</em>
+      </div>
+    </div>
+
+    <h1>Stage-A Contingency Benefit &amp; Custodial Recovery Agreement</h1>
+
+    <div class="summary-box">
+      <div><strong>Agreement Date:</strong> <span id="docDate"></span></div>
+      <div><strong>Audit Reference Code:</strong> <span id="docCode">WH-STAGE-A</span></div>
+      <div><strong>Claimant / Beneficiary:</strong> <span id="docClaimant">____________________________</span></div>
+      <div><strong>Policyholder / Recorded Payee:</strong> <span id="docPolicyholder">____________________________</span></div>
+      <div class="span-full"><strong>Current Residence / Business Address:</strong> <span id="docAddress">________________________________________________</span></div>
+      <div><strong>Identified Uncollected Balance:</strong> <strong id="docGross">$28,450.00</strong></div>
+      <div><strong>Upfront Cost Today:</strong> <strong class="zero-cost">$0.00 (No Recovery, No Fee)</strong></div>
+      <div><strong>Contingency Recovery Fee:</strong> <strong id="docFee">25% ($7,112.50)</strong></div>
+      <div><strong>Estimated Net Payout to Claimant:</strong> <strong id="docNet">$21,337.50</strong></div>
+    </div>
+
+    <h2>1. Zero-Risk Contingency Engagement</h2>
+    <p>
+      Through proprietary audits of unclaimed life insurance escheatment registries, matured benefit ledgers, and
+      government custodial accounts, <strong>Web Holdings</strong> (managed by partners <strong>Adriano Vagnini</strong>
+      and <strong>Josh Dinverno</strong>, "Recovery Firm") has identified uncollected funds or death benefits payable to
+      Claimant / Estate in the amount stated above ("Subject Funds"). Claimant pays <strong>$0.00 upfront</strong>, and
+      Web Holdings advances 100% of genealogical verification, notary fees, and statutory filing costs. Claimant agrees
+      to pay Web Holdings the contingency percentage stated above solely out of Subject Funds actually recovered.
+      <strong>If no funds are recovered for any reason, Claimant owes $0.00.</strong>
+    </p>
+
+    <h2>2. Immediate Custodial Disclosure, Turnkey Filing &amp; Non-Circumvention</h2>
+    <p>
+      Immediately upon execution of this Stage-A Agreement, Web Holdings shall unlock and disclose the holding insurance
+      carrier, state custodial ledger, or federal docket holding the Subject Funds and provide the pre-filled Stage-B
+      claim release and Limited Power of Attorney packet for notarization. Because carriers and the U.S. Treasury issue
+      payout checks or electronic deposits directly to Claimant whenever permitted, Claimant agrees not to circumvent
+      Web Holdings following disclosure, holds Web Holdings' earned contingency fee in fiduciary constructive trust upon
+      disbursement, and agrees to remit said fee via ACH/wire, Zelle, or cashier's check within three (3) business days
+      of payout clearance.
+    </p>
+
+    <h2>3. Statutory Self-Claim &amp; Compliance Disclosure</h2>
+    <p>
+      Claimant acknowledges that rightful owners and heirs have the legal right to search public government registries
+      and claim funds independently without paying a private fee if they independently locate the holding custodian, and
+      voluntarily retains Web Holdings in consideration of audit discovery, heirship/claim preparation, and full cost
+      advancement. Where governed by the Michigan Uniform Unclaimed Property Act (<code>MCL 567.256</code> /
+      <code>MCL 567.256a</code>), this Agreement applies solely to eligible statutory accounts or pre-escheatment
+      federal/municipal disbursements. Exclusive venue for any dispute shall be Wayne County, Michigan.
+    </p>
+
+    <div class="sig-grid">
+      <div>
+        <div class="sig-line"><strong>Claimant / Beneficiary Signature</strong></div>
+        <div class="sig-line">Printed Name &amp; Capacity (Beneficiary / Heir / Officer) &bull; Date</div>
+        <div class="sig-line">Direct Mobile Phone &amp; Email Address</div>
+      </div>
+      <div>
+        <div class="sig-line"><strong>Web Holdings</strong> &mdash; By: Adriano Vagnini / Josh Dinverno, Partner</div>
+        <div class="sig-line">Date Executed</div>
+        <div class="sig-line">Redford / Metro Detroit, MI 48239 &bull; Direct: (313) 588-4864</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="agreement.js"></script>
+</body>
+</html>
