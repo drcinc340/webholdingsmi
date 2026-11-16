@@ -1,0 +1,15 @@
+{
+  "name": "Web Holdings — Unclaimed Life Insurance & Custodial Recovery",
+  "short_name": "Web Holdings",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F5",
+  "theme_color": "#0A1628",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
