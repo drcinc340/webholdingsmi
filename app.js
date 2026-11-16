@@ -5,10 +5,10 @@
     "104200": {
       verifier: "KOWALSKI",
       record: {
-        code: "PIN-104-200",
+        code: "REF-104-200",
         isDemo: true,
-        maskedPayee: "R. KOWALSKI (SAMPLE BENEFICIARY / HEIR)",
-        category: "Unclaimed Life Insurance & Matured Benefit",
+        maskedPayee: "R. KOWALSKI (SAMPLE BENEFICIARY)",
+        category: "Unclaimed Life Insurance Benefit",
         jurisdictionAnchor: "Dearborn / Wayne County, MI",
         grossAmount: 28450.0,
         feePercent: 25,
@@ -19,10 +19,10 @@
     "310500": {
       verifier: "SULLIVAN",
       record: {
-        code: "PIN-310-500",
+        code: "REF-310-500",
         isDemo: true,
-        maskedPayee: "E. SULLIVAN (SAMPLE DESIGNATED BENEFICIARY)",
-        category: "Matured Annuity & Custodial Survivor Benefit",
+        maskedPayee: "E. SULLIVAN (SAMPLE BENEFICIARY)",
+        category: "Matured Annuity Contract",
         jurisdictionAnchor: "Sterling Heights / Macomb County, MI",
         grossAmount: 44910.4,
         feePercent: 20,
@@ -33,7 +33,6 @@
   });
 
   let activeFormToken = "";
-  let activeVerifiedNotice = STATIC_SANDBOX_DEMOS["104200"].record;
   let cachedZkVault = null;
 
   function formatUsd(amount) {
@@ -64,7 +63,6 @@
     return cachedZkVault;
   }
 
-  // Zero-Knowledge Browser WebCrypto Verification (Unlocks real records on static HTTPS CDNs without exposing lead data)
   async function verifyViaZeroKnowledgeVault(rawName, rawPinDigits) {
     if (!window.crypto || !window.crypto.subtle || rawPinDigits.length !== 6) return null;
     const vault = await loadZkVault();
@@ -152,37 +150,49 @@
     });
   }
 
-  // Speakerphone & Letter Verification Vault
+  // Client Reference Verification
   const verifyForm = document.getElementById("verifyForm");
   const referenceInput = document.getElementById("referenceInput");
   const verifierNameInput = document.getElementById("verifierNameInput");
   const verifyBtn = document.getElementById("verifyBtn");
   const certErrorBox = document.getElementById("certErrorBox");
+  const statementDrawer = document.getElementById("statementDrawer");
 
   function showVerifyError(msg) {
+    if (statementDrawer) statementDrawer.classList.add("hidden");
     if (!certErrorBox) return;
     certErrorBox.textContent = msg;
     certErrorBox.classList.remove("hidden");
   }
 
-  function renderCertificate(notice) {
-    activeVerifiedNotice = notice;
+  function renderStatement(notice) {
     if (certErrorBox) certErrorBox.classList.add("hidden");
+    if (statementDrawer) statementDrawer.classList.remove("hidden");
 
-    const codeLabel = notice.isDemo
-      ? `SAMPLE PREVIEW • ${notice.code}`
-      : `VERIFIED MICHIGAN RECORD • ${notice.code}`;
-    document.getElementById("certCodeLabel").textContent = codeLabel;
-    document.getElementById("certPayeeLabel").textContent = notice.maskedPayee;
-    document.getElementById("certStatusBadge").textContent = notice.isDemo ? "SAMPLE RECORD" : "VERIFIED RECORD";
-    document.getElementById("certGrossAmount").textContent = formatUsd(notice.grossAmount);
-    document.getElementById("certCategory").textContent = notice.category;
-    document.getElementById("certAnchor").textContent = String(notice.jurisdictionAnchor || "").replace(
-      /^Recorded (Michigan |Corporate |Custodial |Property )?Audit Anchor — /i,
-      ""
-    );
-    document.getElementById("certNetAmount").textContent =
-      `${formatUsd(notice.netToClaimant)} (After ${notice.feePercent}% Contingency)`;
+    const codeEl = document.getElementById("certCodeLabel");
+    const payeeEl = document.getElementById("certPayeeLabel");
+    const grossEl = document.getElementById("certGrossAmount");
+    const catEl = document.getElementById("certCategory");
+    const anchorEl = document.getElementById("certAnchor");
+    const netEl = document.getElementById("certNetAmount");
+
+    if (codeEl) {
+      codeEl.textContent = notice.isDemo
+        ? `ILLUSTRATIVE PREVIEW • ${notice.code}`
+        : `AUDIT REFERENCE • ${notice.code}`;
+    }
+    if (payeeEl) payeeEl.textContent = notice.maskedPayee;
+    if (grossEl) grossEl.textContent = formatUsd(notice.grossAmount);
+    if (catEl) catEl.textContent = notice.category;
+    if (anchorEl) {
+      anchorEl.textContent = String(notice.jurisdictionAnchor || "").replace(
+        /^Recorded (Michigan |Corporate |Custodial |Property )?Audit Anchor — /i,
+        ""
+      );
+    }
+    if (netEl) {
+      netEl.textContent = `${formatUsd(notice.netToClaimant)} (${100 - notice.feePercent}% Net to Client)`;
+    }
 
     const agreementLink = document.getElementById("certAgreementLink");
     if (agreementLink) {
@@ -195,6 +205,11 @@
       });
       agreementLink.href = `agreement-preview.html?${qs.toString()}`;
     }
+
+    const refField = document.getElementById("intakeRefCode");
+    const payeeField = document.getElementById("insuredOrPayeeName");
+    if (refField) refField.value = notice.code;
+    if (payeeField && !notice.isDemo) payeeField.value = notice.maskedPayee;
   }
 
   async function verifyNoticeDualFactor(rawCode, rawVerifierName) {
@@ -203,22 +218,22 @@
     const cleanedName = String(rawVerifierName || "").trim();
 
     if (!cleanedCode || !cleanedName) {
-      showVerifyError("Please enter both your Last Name (or Company Name) and your 6-Digit Call PIN.");
+      showVerifyError("Please enter both the recorded Last Name (or Entity) and the 6-Digit Reference PIN.");
       return;
     }
 
     if (referenceInput) referenceInput.value = cleanedCode;
     if (verifierNameInput) verifierNameInput.value = cleanedName;
 
-    // Instant check for sandboxed demo chips
     if (STATIC_SANDBOX_DEMOS[digitsOnly] && cleanedName.toUpperCase().includes(STATIC_SANDBOX_DEMOS[digitsOnly].verifier)) {
-      renderCertificate(STATIC_SANDBOX_DEMOS[digitsOnly].record);
+      renderStatement(STATIC_SANDBOX_DEMOS[digitsOnly].record);
       return;
     }
 
+    const originalLabel = verifyBtn ? verifyBtn.textContent : "View Summary";
     if (verifyBtn) {
       verifyBtn.disabled = true;
-      verifyBtn.textContent = "Verifying Record...";
+      verifyBtn.textContent = "Verifying...";
     }
 
     try {
@@ -231,7 +246,7 @@
       if (res.ok) {
         const data = await res.json();
         if (data && data.ok && data.notice) {
-          renderCertificate(data.notice);
+          renderStatement(data.notice);
           return;
         }
       }
@@ -239,26 +254,26 @@
         const errData = await res.json().catch(() => ({}));
         showVerifyError(
           errData.error ||
-            "Could not match that Last Name and 6-Digit PIN. Confirm your PIN with Adriano or Josh at (313) 588-4864."
+            "Unable to match that Last Name and Reference PIN. Please contact Client Services at (313) 588-4864."
         );
         return;
       }
-      throw new Error("Try zero-knowledge static vault");
+      throw new Error("Fallback to zero-knowledge static vault");
     } catch {
       try {
         const zkMatch = await verifyViaZeroKnowledgeVault(cleanedName, digitsOnly);
         if (zkMatch) {
-          renderCertificate(zkMatch);
+          renderStatement(zkMatch);
           return;
         }
       } catch {}
       showVerifyError(
-        "Could not match that Last Name and 6-Digit PIN. Please confirm your 6-Digit PIN on the phone at (313) 588-4864."
+        "Unable to match that Last Name and Reference PIN. Please confirm your Reference PIN with our office at (313) 588-4864."
       );
     } finally {
       if (verifyBtn) {
         verifyBtn.disabled = false;
-        verifyBtn.textContent = "Verify My Michigan Audit Record ($0.00 Upfront)";
+        verifyBtn.textContent = originalLabel;
       }
     }
   }
@@ -278,27 +293,7 @@
     });
   });
 
-  const certStartClaimBtn = document.getElementById("certStartClaimBtn");
-  if (certStartClaimBtn) {
-    certStartClaimBtn.addEventListener("click", () => {
-      const inquirySelect = document.getElementById("inquiryType");
-      const refField = document.getElementById("intakeRefCode");
-      const payeeField = document.getElementById("insuredOrPayeeName");
-      if (inquirySelect) inquirySelect.value = "Respond to Web Holdings Audit Notice";
-      if (refField && activeVerifiedNotice) refField.value = activeVerifiedNotice.code;
-      if (payeeField && activeVerifiedNotice && !activeVerifiedNotice.isDemo) {
-        payeeField.value = activeVerifiedNotice.maskedPayee;
-      }
-      const target = document.getElementById("free-audit");
-      if (target) target.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => {
-        const contactInput = document.getElementById("contactName");
-        if (contactInput) contactInput.focus();
-      }, 450);
-    });
-  }
-
-  // Interactive Net Payout Calculator
+  // Contingency Fee Estimator
   const calcCategory = document.getElementById("calcCategory");
   const calcAmountInput = document.getElementById("calcAmountInput");
   const calcAmountSlider = document.getElementById("calcAmountSlider");
@@ -319,8 +314,7 @@
     const netAmt = Math.round((gross - feeAmt) * 100) / 100;
 
     document.getElementById("calcGrossDisplay").textContent = formatUsd(gross);
-    document.getElementById("calcFeeLabel").textContent =
-      `Contingency Fee (${feePct}% — Only After Payout Clears)`;
+    document.getElementById("calcFeeLabel").textContent = `Contingency Fee (${feePct}% Upon Recovery)`;
     document.getElementById("calcFeeDisplay").textContent = formatUsd(feeAmt);
     document.getElementById("calcNetDisplay").textContent = formatUsd(netAmt);
 
@@ -381,7 +375,7 @@
       };
 
       intakeSubmitBtn.disabled = true;
-      intakeSubmitBtn.textContent = "Submitting Request...";
+      intakeSubmitBtn.textContent = "Submitting...";
 
       try {
         const res = await fetch("api/claim-intake", {
@@ -392,25 +386,25 @@
         });
         const data = await res.json();
         if (!res.ok || !data.ok) {
-          throw new Error(data.error || "Online server offline.");
+          throw new Error(data.error || "Online submission unavailable.");
         }
 
         renderIntakeReceipt(
           intakeSuccessBox,
-          `Verification Request Logged (${data.confirmationId})`,
-          `Received ${data.submittedAt}. Adriano Vagnini or Josh Dinverno will follow up with you directly, or you can call/text (313) 588-4864.`
+          `Inquiry Confirmation: ${data.confirmationId}`,
+          `Logged ${data.submittedAt}. A Managing Partner will contact you directly, or you may reach Client Services at (313) 588-4864.`
         );
         claimIntakeForm.reset();
         refreshSecurityFormToken();
       } catch {
         renderIntakeReceipt(
           intakeSuccessBox,
-          "Call or Text Our Michigan Office Directly: (313) 588-4864",
-          "To schedule your 5-minute bank notary meetup or request your 1-page agreement right away, call or text Adriano Vagnini or Josh Dinverno at (313) 588-4864."
+          "Client Services Desk: (313) 588-4864",
+          "Please contact Managing Partners Adriano Vagnini or Josh Dinverno directly at (313) 588-4864 to schedule your consultation or notary appointment."
         );
       } finally {
         intakeSubmitBtn.disabled = false;
-        intakeSubmitBtn.textContent = "Send Request ($0.00 Upfront — Zero Obligation)";
+        intakeSubmitBtn.textContent = "Submit Client Inquiry";
       }
     });
   }
