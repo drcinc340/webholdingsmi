@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Web Holdings | Michigan Unclaimed Life Insurance &amp; Government Disbursement Audit Office</title>
+  <meta
+    name="description"
+    content="Did Adriano Vagnini or Josh Dinverno call or write you? Verify your uncollected life insurance benefit or government check in 10 seconds at WebHoldingsMI.com. $0.00 upfront, zero SSN or bank info requested, in-person bank notary verification in Metro Detroit."
+  />
+  <link rel="canonical" href="https://webholdingsmi.com/" />
+  <meta property="og:title" content="Web Holdings LLC | Official Michigan Unclaimed Insurance &amp; Custodial Audit Verification" />
+  <meta property="og:description" content="Verify your uncollected benefit or check using your Last Name + 6-Digit Call PIN. $0.00 upfront — in-person bank notary verification in Metro Detroit." />
+  <meta property="og:url" content="https://webholdingsmi.com/" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Consumer Anti-Scam Protection Banner (Very First Line Seen on Mobile & Desktop) -->
+  <div class="safety-banner">
+    <div class="container safety-banner-inner">
+      <div class="safety-badge">
+        <span class="safety-dot"></span>
+        <span>ANTI-SCAM GUARANTEE: We NEVER ask for your Social Security Number, Bank Login, or Upfront Money.</span>
+      </div>
+      <a href="tel:3135884864" class="safety-phone">Direct Michigan Office: (313) 588-4864</a>
+    </div>
+  </div>
+
+  <!-- Main Sticky Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand" aria-label="Web Holdings Home">
+        <svg class="brand-seal" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="64" height="64" rx="12" fill="#0A1628" />
+          <rect x="4.5" y="4.5" width="55" height="55" rx="9" stroke="#B68D40" stroke-width="1.5" stroke-opacity="0.85" />
+          <path d="M14 20L19.5 44L25.5 25.5L31.5 44L37 20" stroke="#FAF8F5" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M40.5 20V44M50.5 20V44M40.5 31.5H50.5" stroke="#B68D40" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Web Holdings</span>
+          <span class="brand-tagline">Michigan Unclaimed Insurance &amp; Custodial Audit Office</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#verify-call">Verify Phone Call</a>
+        <a href="#scam-check">Scam Check</a>
+        <a href="#gov-proof">.GOV Proof</a>
+        <a href="#divisions">What We Audit</a>
+        <a href="#calculator">Payout Calculator</a>
+        <a href="#leadership">Meet Us In Person</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="agreement-preview.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          Read 1-Page Agreement
+        </a>
+        <a href="#free-audit" class="btn btn-primary btn-sm">Free Policy Search</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Toggle Menu">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero + Live Speakerphone Call Verification Above the Fold -->
+  <section class="hero" id="verify-call">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Metro Detroit &amp; Statewide Michigan Audit Office</div>
+        <h1>
+          Did We Just Call You About an <span>Unclaimed Check or Life Insurance Benefit?</span>
+        </h1>
+        <p class="hero-lead">
+          You have every right to be cautious when someone calls unexpectedly. <strong>Web Holdings</strong> is a local
+          Michigan unclaimed life insurance and government disbursement audit firm operated in person by Managing
+          Partners <strong>Adriano Vagnini</strong> &amp; <strong>Josh Dinverno</strong>.
+        </p>
+
+        <div class="call-disarm-callout">
+          <div class="call-disarm-title">3 Rules Before You Trust Anyone on the Phone:</div>
+          <ul class="call-disarm-list">
+            <li><strong>Never give your SSN or bank account on a phone call</strong> — we will never ask for either.</li>
+            <li><strong>Never pay $1 upfront</strong> — we pay 100% of research, notary, and filing costs ourselves.</li>
+            <li>
+              <strong>Meet us face-to-face at YOUR bank:</strong> Overseas scammers cannot walk into your local
+              <strong>Chase, Huntington, Comerica, Flagstar, or UPS Store notary</strong> with a Michigan Driver's
+              License. We do — every single day.
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-cta-row">
+          <a href="#scam-check" class="btn btn-primary btn-lg">See How to Verify We Are Legitimate</a>
+          <a href="agreement-preview.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
+            Read Our Plain-English 1-Page Agreement
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column / Mobile Immediate Card: Live Speakerphone Call Verification -->
+      <div class="live-vault-card">
+        <div class="vault-kicker">LIVE SPEAKERPHONE &amp; LETTER VERIFICATION</div>
+        <h2 class="vault-heading">Verify Your Unclaimed Balance Right Now</h2>
+        <p class="vault-sub">
+          Enter <strong>only</strong> your Last Name (or Company Name) and the <strong>6-Digit Call PIN</strong> given
+          to you on the phone by Adriano or Josh. Do not enter any private information.
+        </p>
+
+        <form id="verifyForm">
+          <div class="vault-inputs-stack">
+            <input
+              type="text"
+              id="verifierNameInput"
+              class="vault-input"
+              placeholder="Last Name or Company"
+              maxlength="64"
+              autocomplete="off"
+              required
+            />
+            <input
+              type="text"
+              id="referenceInput"
+              class="vault-input"
+              placeholder="6-Digit PIN (e.g. 104-200)"
+              maxlength="24"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-emerald w-full" id="verifyBtn">
+            Verify My Michigan Audit Record ($0.00 Upfront)
+          </button>
+        </form>
+
+        <div class="sample-codes">
+          <span>Test sample lookup:</span>
+          <button type="button" class="sample-chip" data-code="104-200" data-name="Kowalski">
+            Kowalski + PIN 104-200
+          </button>
+          <button type="button" class="sample-chip" data-code="310-500" data-name="Sullivan">
+            Sullivan + PIN 310-500
+          </button>
+        </div>
+
+        <div class="certificate-panel" id="certificatePanel">
+          <div id="certErrorBox" class="cert-error hidden"></div>
+
+          <div class="cert-header">
+            <div>
+              <div class="cert-kicker" id="certCodeLabel">SAMPLE PREVIEW &bull; PIN 104-200</div>
+              <div class="cert-title" id="certPayeeLabel">R. KOWALSKI (SAMPLE BENEFICIARY / HEIR)</div>
+            </div>
+            <span class="cert-badge" id="certStatusBadge">SAMPLE RECORD</span>
+          </div>
+
+          <div class="cert-amount-highlight">
+            <span class="cert-amount-label">Verified Uncollected Balance</span>
+            <span class="cert-amount-number" id="certGrossAmount">$28,450.00</span>
+          </div>
+
+          <div class="cert-rows">
+            <div class="cert-row">
+              <span class="cert-row-label">Audit Record Type</span>
+              <span class="cert-row-val" id="certCategory">Unclaimed Life Insurance &amp; Matured Benefit</span>
+            </div>
+            <div class="cert-row">
+              <span class="cert-row-label">Historical Michigan City</span>
+              <span class="cert-row-val" id="certAnchor">Dearborn / Wayne County, MI</span>
+            </div>
+            <div class="cert-row">
+              <span class="cert-row-label">Out-of-Pocket Cost Today</span>
+              <span class="cert-row-val text-emerald">$0.00 — No Recovery, No Fee</span>
+            </div>
+            <div class="cert-row">
+              <span class="cert-row-label">Estimated Direct Payout to You</span>
+              <span class="cert-row-val" id="certNetAmount">$21,337.50 (After 25% Contingency)</span>
+            </div>
+          </div>
+
+          <div class="cert-actions">
+            <a
+              href="agreement-preview.html?code=PIN-104-200&amount=28450.00&fee=25"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary btn-sm"
+              id="certAgreementLink"
+            >
+              Read 1-Page Agreement
+            </a>
+            <button type="button" class="btn btn-outline btn-sm" id="certStartClaimBtn">
+              Schedule Bank / Notary Meet
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Side-by-Side Scam Check Section -->
+  <section class="section" id="scam-check">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">100% Transparency</div>
+        <h2>How to Tell Us Apart From Phone Scammers in 30 Seconds</h2>
+        <p>
+          Scammers rely on secrecy, urgency, and asking you to send money or private numbers. Legitimate statutory
+          recovery works the exact opposite way. Compare every step side-by-side:
+        </p>
+      </div>
+
+      <div class="scam-compare-grid">
+        <div class="scam-col-bad">
+          <h3 class="scam-col-title">What Actual Phone Scammers Do</h3>
+          <ul class="compare-list">
+            <li>
+              <span class="x-badge">&#10005;</span>
+              <div>Ask you to read your Social Security Number, Medicare number, or online banking info on a call.</div>
+            </li>
+            <li>
+              <span class="x-badge">&#10005;</span>
+              <div>Claim you have to pay an upfront "processing fee," "IRS tax release," wire, or gift card first.</div>
+            </li>
+            <li>
+              <span class="x-badge">&#10005;</span>
+              <div>Call from anonymous overseas call centers and can never meet you in person with real ID.</div>
+            </li>
+            <li>
+              <span class="x-badge">&#10005;</span>
+              <div>Invent fake round numbers ("You won $25,000!") with zero connection to your real prior address.</div>
+            </li>
+            <li>
+              <span class="x-badge">&#10005;</span>
+              <div>Pressure you not to tell your family, banker, CPA, or attorney before acting.</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="scam-col-good">
+          <h3 class="scam-col-title">How Web Holdings (Adriano &amp; Josh) Works</h3>
+          <ul class="compare-list">
+            <li>
+              <span class="check-badge">&#10003;</span>
+              <div>
+                <strong>Zero Private Numbers on the Phone:</strong> We never ask for your SSN, DOB, or bank account on
+                the phone.
+              </div>
+            </li>
+            <li>
+              <span class="check-badge">&#10003;</span>
+              <div>
+                <strong>$0.00 Upfront — Ever:</strong> You never pay us a cent out of pocket. We even pay the $10–$15
+                notary counter fee ourselves. If your check isn't recovered, you owe $0.00.
+              </div>
+            </li>
+            <li>
+              <span class="check-badge">&#10003;</span>
+              <div>
+                <strong>In-Person Meetup at YOUR Bank:</strong> Across Metro Detroit &amp; Michigan, Adriano or Josh
+                meets you at <strong>your own local bank branch or UPS Store notary</strong> with our Michigan Driver's
+                Licenses.
+              </div>
+            </li>
+            <li>
+              <span class="check-badge">&#10003;</span>
+              <div>
+                <strong>Exact Historical Address &amp; Down-to-the-Penny Balance:</strong> We confirm your real former
+                Michigan street/city record and exact check amount (e.g., $9,914.31) upfront.
+              </div>
+            </li>
+            <li>
+              <span class="check-badge">&#10003;</span>
+              <div>
+                <strong>Bring Your Spouse, Banker, or Attorney:</strong> Review our 1-page agreement right on this
+                website with anyone you trust before signing.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bank-meetup-banner">
+        <div>
+          <h3>Want Proof Nobody Can Fake? Pick Any Bank or UPS Store Near Your House.</h3>
+          <p>
+            If you live in Wayne, Oakland, Macomb, Washtenaw, or surrounding Michigan counties, don't mail anything to a
+            stranger. Tell Adriano or Josh which local Chase, Huntington, Comerica, Flagstar, Bank of America, or UPS
+            Store is 5 minutes from your home, and we will meet you right at the notary counter in person.
+          </p>
+        </div>
+        <a href="tel:3135884864" class="btn btn-gold btn-lg">Call Adriano or Josh: (313) 588-4864</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Independent .GOV Statutory Verification Section -->
+  <section class="section section-alt" id="gov-proof">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Public Statutory Verification</div>
+        <h2>Check Official .GOV Websites Yourself — These Programs Are 100% Real Law</h2>
+        <p>
+          Don't just take our word for it. Click any official U.S. Government or State of Michigan link below to confirm
+          that unclaimed life insurance registries, federal court unclaimed funds, and HUD third-party tracer refunds
+          are established statutory programs.
+        </p>
+      </div>
+
+      <div class="gov-grid">
+        <div class="gov-card">
+          <div>
+            <span class="gov-domain">USCOURTS.GOV &bull; 28 U.S.C. &sect; 2042</span>
+            <h3>U.S. Federal Courts Unclaimed Funds</h3>
+            <p>
+              Official U.S. Judiciary guide explaining how uncashed creditor, homeowner, and estate checks are held in
+              the U.S. Treasury until claimed by formal motion and notarized verification.
+            </p>
+          </div>
+          <a
+            href="https://www.uscourts.gov/services-forms/bankruptcy/unclaimed-funds"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="gov-link"
+          >
+            Verify on USCourts.gov &rarr;
+          </a>
+        </div>
+
+        <div class="gov-card">
+          <div>
+            <span class="gov-domain">HUD.GOV &bull; FEDERAL TRACER</span>
+            <h3>HUD / FHA Homeowner Refunds</h3>
+            <p>
+              Official U.S. Dept. of Housing &amp; Urban Development page confirming distributive share &amp; upfront
+              FHA mortgage insurance refunds owed to former Michigan homeowners.
+            </p>
+          </div>
+          <a
+            href="https://www.hud.gov/program_offices/housing/comp/refunds"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="gov-link"
+          >
+            Verify on HUD.gov &rarr;
+          </a>
+        </div>
+
+        <div class="gov-card">
+          <div>
+            <span class="gov-domain">NAIC.ORG / MICHIGAN DIFS</span>
+            <h3>Unclaimed Life Insurance &amp; Annuities</h3>
+            <p>
+              National Association of Insurance Commissioners overview of forgotten whole/term life policies,
+              demutualization payouts, and retained asset death benefit accounts.
+            </p>
+          </div>
+          <a
+            href="https://content.naic.org/article/learn-how-use-naic-life-insurance-policy-locator"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="gov-link"
+          >
+            Verify on NAIC.org &rarr;
+          </a>
+        </div>
+
+        <div class="gov-card">
+          <div>
+            <span class="gov-domain">LEGISLATURE.MI.GOV</span>
+            <h3>Michigan Statutory Recovery Laws</h3>
+            <p>
+              Michigan Compiled Laws governing registered unclaimed insurance &amp; property locator accounts
+              (<code>MCL 567.256a</code>) and county foreclosure surplus proceeds (<code>MCL 600.3252</code>).
+            </p>
+          </div>
+          <a
+            href="https://www.legislature.mi.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="gov-link"
+          >
+            Verify on Legislature.mi.gov &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Audit Divisions -->
+  <section class="section" id="divisions">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">What Web Holdings Recovers</div>
+        <h2>Why Families, Heirs &amp; Businesses Hire Us Instead of Fighting Red Tape Alone</h2>
+        <p>
+          Rightful owners can always search public government databases for free if they already know which legacy
+          insurer, court district, or municipal ledger holds the money. Clients hire Web Holdings because we have
+          already located the dormant balance, prepare every notarized legal motion and heir affidavit, and advance all
+          costs at zero risk.
+        </p>
+      </div>
+
+      <div class="divisions-grid">
+        <div class="division-box">
+          <div class="division-top">
+            <span class="division-code">DIVISION I &bull; LIFE INSURANCE &amp; ESTATES</span>
+            <span class="division-tag">Primary Practice</span>
+          </div>
+          <h3>Unclaimed Life Insurance, Annuities &amp; Survivor Death Benefits</h3>
+          <p>
+            When insurers merge, demutualize, or lose touch with surviving spouses and children, paid-up policies and
+            retained asset accounts sit dormant or transfer to statutory escheatment ledgers (<code>MCL 567.256a</code>).
+          </p>
+          <ul class="division-bullets">
+            <li>Surviving spouse, child, and grandchild heirship lineage proof</li>
+            <li>Turnkey Michigan Small-Estate Affidavit (<code>PC 598</code>) &amp; carrier claim packets</li>
+            <li>Zero out-of-pocket cost even if probate closed years ago</li>
+          </ul>
+        </div>
+
+        <div class="division-box">
+          <div class="division-top">
+            <span class="division-code">DIVISION II &bull; 28 U.S.C. &sect; 2042</span>
+            <span class="division-tag">U.S. Treasury Custodial</span>
+          </div>
+          <h3>U.S. Federal Court Unclaimed Distribution Checks</h3>
+          <p>
+            Uncashed distribution, wage, mortgage-overpayment, and creditor checks deposited into the U.S. Treasury
+            registry across U.S. Federal Courts — requiring judicial release motions and U.S. Attorney proof of service.
+          </p>
+          <ul class="division-bullets">
+            <li>Complete Form B-1340 / local court application &amp; AO-213P preparation</li>
+            <li>Certified U.S. Attorney service handled end-to-end by our office</li>
+            <li>U.S. Treasury EFT or check issued directly to you (~21–45 days)</li>
+          </ul>
+        </div>
+
+        <div class="division-box">
+          <div class="division-top">
+            <span class="division-code">DIVISION III &bull; HUD &amp; COUNTY SURPLUS</span>
+            <span class="division-tag">Homeowner Refunds</span>
+          </div>
+          <h3>HUD / FHA Mortgage Insurance Refunds &amp; County Surpluses</h3>
+          <p>
+            Federal FHA mortgage insurance premium refunds owed after refinancing or selling a home, plus county
+            treasurer and Sheriff's Sale overbid surplus proceeds (<code>MCL 600.3252</code>).
+          </p>
+          <ul class="division-bullets">
+            <li>Official HUD-27050-B Third-Party Tracer claim preparation</li>
+            <li>Pre-escheatment county &amp; city stale-check recovery</li>
+            <li>$0.00 upfront for former Michigan homeowners and surviving heirs</li>
+          </ul>
+        </div>
+
+        <div class="division-box">
+          <div class="division-top">
+            <span class="division-code">DIVISION IV &bull; CORPORATE &amp; LEGAL B2B</span>
+            <span class="division-tag">Institutional Audits</span>
+          </div>
+          <h3>Hospitals, Law Firms &amp; Michigan Businesses</h3>
+          <p>
+            Uncashed court registry disbursements, municipal escrow refunds, and dormant credit balances owed to
+            healthcare systems, law firms, auto lenders, and corporate accounts receivable departments.
+          </p>
+          <ul class="division-bullets">
+            <li>Zero administrative burden for CFOs, controllers, and managing partners</li>
+            <li>Corporate officer authority &amp; merger successor documentation</li>
+            <li>Direct U.S. Treasury / municipal remittance to company AR</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-Step Bank Notary Meetup Process -->
+  <section class="section section-dark" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow eyebrow-dark">Simple 5-Minute Bank Notary Process</div>
+        <h2>Exactly What Happens From Phone Call to Payout</h2>
+        <p>
+          Why don't we name the holding agency before our 1-page agreement is signed? Because we do 100% of the audit
+          discovery upfront for $0.00. The moment Page 1 is signed, we hand you the complete pre-filled government or
+          insurer packet on the spot.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <span class="step-stage-pill">VERIFY BY PHONE</span>
+          <h3>Confirm Old Address &amp; Exact Amount</h3>
+          <p>
+            Verify your record right here using your Last Name + 6-Digit Call PIN, and review our plain-English 1-page
+            agreement at your own pace with zero pressure.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <span class="step-stage-pill">YOUR LOCAL BANK</span>
+          <h3>5-Minute In-Person Notary Meetup</h3>
+          <p>
+            Pick any neighborhood bank branch or UPS Store notary near you (or remote notary out of state). Sign our
+            1-page $0-upfront Contingency Agreement first.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <span class="step-stage-pill">FULL DISCLOSURE</span>
+          <h3>Notarize Official Release Packet</h3>
+          <p>
+            Right at the notary counter, we hand you the full agency/carrier disclosure and pre-filled claim application,
+            pay the notary fee, and file the certified packet for you.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <span class="step-stage-pill">PAID TO YOU</span>
+          <h3>Receive Check &amp; Settle Fee</h3>
+          <p>
+            The U.S. Treasury or insurance custodian sends the payout directly to you. You pay our contingency fee only
+            after your check or deposit safely clears.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Net Payout Calculator -->
+  <section class="section section-alt" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Plain-English Numbers</div>
+        <h2>Calculate Your Exact Net Payout ($0.00 Upfront)</h2>
+        <p>
+          See down to the penny what goes directly into your pocket — with zero upfront fees, zero notary charges, and
+          zero risk if a claim is ever denied.
+        </p>
+      </div>
+
+      <div class="calc-wrapper">
+        <div>
+          <div class="calc-field">
+            <label for="calcCategory">Select Claim Type</label>
+            <select id="calcCategory" class="calc-select">
+              <option value="25" data-label="Unclaimed Life Insurance / Death Benefit">
+                Unclaimed Life Insurance / Survivor Benefit (25% Contingency)
+              </option>
+              <option value="20" data-label="Large Policy / Annuity ($40,000+)">
+                Large Life Policy or Custodial Check Over $40,000 (20%–25% Contingency)
+              </option>
+              <option value="25" data-label="Federal Custodial Check (28 U.S.C. § 2042)">
+                U.S. Federal Court Unclaimed Check (25% Contingency)
+              </option>
+              <option value="30" data-label="HUD / FHA Homeowner Refund">
+                HUD / FHA Mortgage Insurance Refund (30% Contingency)
+              </option>
+              <option value="25" data-label="Corporate / Law Firm / Healthcare Audit">
+                Corporate, Healthcare or Law Firm B2B Audit (25% Contingency)
+              </option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="calcAmountInput">Exact Unclaimed Check or Policy Amount ($)</label>
+            <input
+              type="number"
+              id="calcAmountInput"
+              class="calc-number-input"
+              min="1000"
+              max="500000"
+              step="100"
+              value="9914"
+            />
+            <input
+              type="range"
+              id="calcAmountSlider"
+              class="calc-range"
+              min="1500"
+              max="100000"
+              step="250"
+              value="9914"
+            />
+            <div class="calc-range-labels">
+              <span>$1,500</span>
+              <span>$25,000</span>
+              <span>$50,000</span>
+              <span>$100,000+</span>
+            </div>
+          </div>
+
+          <p class="calc-note">
+            *Where governed by state statutory fee caps on specific state-held property windows, Web Holdings
+            automatically caps fees at or below the applicable statutory limit.
+          </p>
+        </div>
+
+        <div class="calc-summary-box">
+          <div class="calc-net-label">Net Cash Directly to You</div>
+          <div class="calc-net-amount" id="calcNetDisplay">$7,435.50</div>
+
+          <div class="calc-breakdown">
+            <div class="calc-line">
+              <span>Gross Uncollected Check / Benefit</span>
+              <strong id="calcGrossDisplay">$9,914.00</strong>
+            </div>
+            <div class="calc-line">
+              <span>What You Pay Upfront Today</span>
+              <strong class="text-emerald-bright">$0.00</strong>
+            </div>
+            <div class="calc-line">
+              <span>Notary, Certified Mail &amp; Filing Costs</span>
+              <strong class="text-emerald-bright">Paid 100% by Web Holdings</strong>
+            </div>
+            <div class="calc-line">
+              <span id="calcFeeLabel">Contingency Fee (25% — Only After Payout Clears)</span>
+              <strong id="calcFeeDisplay">$2,478.50</strong>
+            </div>
+            <div class="calc-line">
+              <span>What You Owe If Not Recovered</span>
+              <strong class="text-emerald-bright">$0.00</strong>
+            </div>
+          </div>
+
+          <a
+            href="agreement-preview.html?amount=9914&fee=25"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-gold w-full"
+            id="calcPreviewAgreementBtn"
+          >
+            Open &amp; Read Full 1-Page Agreement
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Local Michigan Partners -->
+  <section class="section" id="leadership">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Real Local Partners &bull; Metro Detroit, MI</div>
+        <h2>Who You Are Speaking With on the Phone</h2>
+        <p>
+          Web Holdings is not an anonymous out-of-state call center. When we call, text, or meet you at your bank's
+          notary counter, you deal directly with the two Michigan co-founders:
+        </p>
+      </div>
+
+      <div class="partners-grid">
+        <div class="partner-card">
+          <span class="partner-role">Co-Founder &amp; Managing Partner</span>
+          <h3>Adriano Vagnini</h3>
+          <p>
+            Michigan auditor and inventor of Web Holdings' patent-pending Two-Stage Custodial Verification &amp;
+            Estate Lineage System (<code>USPTO Provisional App. No. 64/197,851</code>). Leads federal court, HUD, and
+            statutory life insurance escheatment filings and meets Metro Detroit claimants in person for notary
+            verification.
+          </p>
+          <div class="partner-meta">Redford / Wayne County, MI &bull; (313) 588-4864</div>
+        </div>
+
+        <div class="partner-card">
+          <span class="partner-role">Co-Founder &amp; Managing Partner</span>
+          <h3>Josh Dinverno</h3>
+          <p>
+            Lifelong Southeast Michigan business owner leading beneficiary outreach, family &amp; corporate verification,
+            and local bank/notary appointments across Oakland, Macomb, Wayne, and Washtenaw Counties. Committed to zero
+            pressure, plain-English answers, and face-to-face accountability.
+          </p>
+          <div class="partner-meta">Metro Detroit, MI &bull; (313) 588-4864</div>
+        </div>
+
+        <div class="office-photo-card">
+          <img
+            src="assets/hero-editorial.jpg"
+            alt="Web Holdings Michigan Audit Documentation Portfolio"
+          />
+          <div class="office-photo-body">
+            <strong>In-Person Verification Across SE Michigan</strong>
+            Meet Adriano or Josh at any local bank or UPS Store notary in Redford, Livonia, Dearborn, Southfield, Troy,
+            Royal Oak, Sterling Heights, Waterford, Canton, or Ann Arbor — or use Priority Mail / remote notary anywhere
+            in the U.S.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Policy Search / Schedule Bank Notary Meetup -->
+  <section class="section section-alt" id="free-audit">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Zero-Cost Verification &amp; Policy Search</div>
+        <h2>Schedule a 5-Minute Bank Notary Meetup or Free Life Insurance Search</h2>
+        <p>
+          Want us to email you the 1-page agreement first, meet you at your local bank notary, or search for a late
+          family member's unclaimed life insurance policy? Submit below or call <strong>(313) 588-4864</strong>.
+        </p>
+      </div>
+
+      <div class="intake-grid">
+        <div class="intake-card">
+          <form id="claimIntakeForm">
+            <div class="hp-trap" aria-hidden="true">
+              <label for="websiteUrl">Company Website URL</label>
+              <input type="text" id="websiteUrl" name="websiteUrl" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="inquiryType">How Would You Like to Proceed?</label>
+                <select id="inquiryType" class="form-control">
+                  <option value="Respond to Web Holdings Audit Notice">
+                    Verify &amp; Claim Check From Adriano / Josh's Call
+                  </option>
+                  <option value="Unclaimed Life Insurance / Death Benefit Search">
+                    Free Search for Unclaimed Life Insurance Policy
+                  </option>
+                  <option value="Corporate / Law Firm / Healthcare B2B Audit">
+                    Corporate, Law Firm, or Healthcare AR Claim
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="intakeRefCode">6-Digit Call PIN or Code (Optional)</label>
+                <input
+                  type="text"
+                  id="intakeRefCode"
+                  class="form-control"
+                  maxlength="32"
+                  placeholder="e.g. 104-200 or Leave Blank"
+                />
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="insuredOrPayeeName">Payee / Policyholder / Company Name *</label>
+                <input
+                  type="text"
+                  id="insuredOrPayeeName"
+                  class="form-control"
+                  maxlength="110"
+                  placeholder="Full Name (never enter SSN)"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="relationship">Your Role</label>
+                <select id="relationship" class="form-control">
+                  <option value="Self (Original Payee)">I Am the Named Payee</option>
+                  <option value="Surviving Spouse">Surviving Spouse</option>
+                  <option value="Child / Grandchild / Legal Heir">Child / Legal Heir</option>
+                  <option value="Estate Executor / Personal Representative">Estate Executor / Representative</option>
+                  <option value="Corporate Officer / Counsel / CFO">Corporate Officer / Counsel / CFO</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="contactName">Your Full Name *</label>
+                <input type="text" id="contactName" class="form-control" maxlength="90" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <label for="lastKnownCityState">Your City &amp; State</label>
+                <input
+                  type="text"
+                  id="lastKnownCityState"
+                  class="form-control"
+                  maxlength="90"
+                  placeholder="e.g. Livonia, MI"
+                />
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="phone">Best Callback / Text Number *</label>
+                <input type="tel" id="phone" class="form-control" maxlength="36" placeholder="(313) 555-0199" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email (To Receive 1-Page Agreement PDF)</label>
+                <input type="email" id="email" class="form-control" maxlength="110" placeholder="you@example.com" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="preferredMeeting">Preferred Verification Option</label>
+              <select id="preferredMeeting" class="form-control">
+                <option value="In-Person Meet at Local Metro Detroit Bank / UPS Notary">
+                  Meet In Person at My Local Bank Branch / UPS Store Notary
+                </option>
+                <option value="Email Pre-Filled 1-Page Agreement Packet First">
+                  Email Me the 1-Page Agreement to Read First
+                </option>
+                <option value="5-Minute Phone Call With Adriano or Josh">
+                  5-Minute Phone Call With Adriano or Josh
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Preferred Bank / UPS Store Location or Questions (Optional)</label>
+              <textarea
+                id="notes"
+                class="form-control"
+                maxlength="600"
+                placeholder="e.g. 'Chase Bank on Plymouth Rd in Livonia' or any questions for Adriano & Josh (do NOT include SSN or bank numbers)..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-emerald btn-lg w-full" id="intakeSubmitBtn">
+              Send Request ($0.00 Upfront — Zero Obligation)
+            </button>
+
+            <div id="intakeSuccessBox" class="intake-success hidden"></div>
+          </form>
+        </div>
+
+        <div class="direct-desk-card">
+          <div class="ribbon-mono">DIRECT MICHIGAN AUDIT OFFICE</div>
+          <h3>Call or Text Adriano &amp; Josh Directly</h3>
+          <p class="desk-sub">
+            Have your spouse, banker, or attorney join the call — we are happy to answer every question openly before
+            you decide anything.
+          </p>
+
+          <div class="desk-contact-list">
+            <div class="desk-contact-item">
+              <small>Official Verification Portal</small>
+              <strong>WebHoldingsMI.com</strong>
+            </div>
+            <div class="desk-contact-item">
+              <small>Direct Call or Text</small>
+              <strong><a href="tel:3135884864">(313) 588-4864</a></strong>
+            </div>
+            <div class="desk-contact-item">
+              <small>Managing Partners</small>
+              <strong>Adriano Vagnini &amp; Josh Dinverno</strong>
+            </div>
+            <div class="desk-contact-item">
+              <small>Michigan Office</small>
+              <strong>Redford / Metro Detroit, MI 48239</strong>
+            </div>
+            <div class="desk-contact-item">
+              <small>Upfront Cost Guarantee</small>
+              <strong>$0.00 Out-of-Pocket &bull; No Recovery, No Fee</strong>
+            </div>
+          </div>
+
+          <a href="agreement-preview.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light w-full">
+            Preview Our Exact 1-Page Contingency Agreement
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Straight Answers</div>
+        <h2>Questions Skeptical Claimants Ask Us Every Day</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>
+            <span>Why don't you tell me which court or insurance agency holds the check before I sign Page 1?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Because we spend our own money and audit engineering to locate dormant checks and trace relocated families
+            while charging <strong>$0.00 upfront</strong>. If we named the exact court docket before signing, people
+            would bypass us after we did all the discovery work. Instead, we prove it is 100% real upfront by confirming
+            your exact old address and down-to-the-penny dollar amount, meet you at your own bank notary, and hand you
+            the full government/carrier disclosure the instant Page 1 is signed.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>How did you get my cell phone number?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Government unclaimed-funds dockets and insurance escheatment ledgers list the rightful payee's name and
+            their old mailing address from years ago. Because the check went uncashed at that old address, licensed
+            public-record address-history databases are used strictly to match the old street address to the rightful
+            owner's current phone number so you can actually be notified.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>What if the government or insurer denies the claim — could I ever owe you money?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <strong>Never — not one cent.</strong> Section 1 of our written agreement explicitly states that if no funds
+            are recovered for any reason, you owe $0.00 and never reimburse us for notary, postage, or filing costs.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Can I search public government unclaimed-property sites myself for free?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Yes! Rightful owners always have the legal right to search public registries (such as USCourts.gov, HUD.gov,
+            NAIC.org, or Michigan.gov) on their own without paying a fee if they independently locate the holding agency
+            and prepare the legal motions, U.S. Attorney notices, and notarized affidavits themselves. Clients hire Web
+            Holdings for convenience, speed, and zero-risk turnkey filing.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-heading">WEB HOLDINGS LLC</div>
+          <p class="footer-copy">
+            Michigan Unclaimed Life Insurance, Estate Benefit &amp; Government Custodial Disbursement Audit Office.
+            Co-founded and operated in Metro Detroit by Managing Partners <strong>Adriano Vagnini</strong> &amp;
+            <strong>Josh Dinverno</strong>.
+          </p>
+          <div class="ribbon-mono">USPTO Provisional Patent App. No. 64/197,851</div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Verify Authenticity</div>
+          <ul class="footer-links">
+            <li><a href="#verify-call">Verify Phone Call PIN</a></li>
+            <li><a href="#scam-check">Side-by-Side Scam Check</a></li>
+            <li><a href="#gov-proof">Official .GOV Program Links</a></li>
+            <li><a href="agreement-preview.html" target="_blank" rel="noopener noreferrer">1-Page Written Agreement</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Audit Divisions</div>
+          <ul class="footer-links">
+            <li><a href="#divisions">Unclaimed Life Insurance</a></li>
+            <li><a href="#divisions">Federal Court Checks (28 U.S.C. &sect; 2042)</a></li>
+            <li><a href="#divisions">HUD / FHA Homeowner Refunds</a></li>
+            <li><a href="#divisions">Corporate &amp; Law Firm Audits</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Michigan Audit Office</div>
+          <ul class="footer-links">
+            <li>Redford / Metro Detroit, MI 48239</li>
+            <li><a href="tel:3135884864">Direct Office: (313) 588-4864</a></li>
+            <li>In-Person Bank &amp; UPS Notary Service</li>
+            <li>$0.00 Upfront &bull; No Recovery, No Fee</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="statutory-disclaimer">
+        <strong>Statutory &amp; Consumer Compliance Disclosure:</strong> Web Holdings is an independent private audit
+        and claim-preparation firm and is not a government agency or insurance carrier, nor do we provide tax or legal
+        advice. Rightful owners may search public government registries directly at no cost if they independently locate
+        the holding custodian. Where governed by the Michigan Uniform Unclaimed Property Act (<code>MCL 567.256</code> /
+        <code>MCL 567.256a</code>), engagements apply solely to pre-escheatment federal/municipal funds or eligible
+        statutory accounts.
+        <br /><br />
+        &copy; 2026 Web Holdings &bull; Adriano Vagnini &amp; Josh Dinverno, Managing Partners. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
