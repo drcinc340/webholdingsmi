@@ -254,7 +254,7 @@
         const errData = await res.json().catch(() => ({}));
         showVerifyError(
           errData.error ||
-            "Unable to match that Last Name and Reference PIN. Please contact Client Services at (248) 996-1874."
+            "Unable to match that Last Name and Reference PIN. Please contact Client Services at (248) 996-1874 or (248) 996-1819."
         );
         return;
       }
@@ -268,7 +268,7 @@
         }
       } catch {}
       showVerifyError(
-        "Unable to match that Last Name and Reference PIN. Please confirm your Reference PIN with our office at (248) 996-1874."
+        "Unable to match that Last Name and Reference PIN. Please confirm your Reference PIN with our office at (248) 996-1874 or (248) 996-1819."
       );
     } finally {
       if (verifyBtn) {
@@ -392,15 +392,15 @@
         renderIntakeReceipt(
           intakeSuccessBox,
           `Inquiry Confirmation: ${data.confirmationId}`,
-          `Logged ${data.submittedAt}. A Managing Partner will contact you directly, or you may reach Client Services at (248) 996-1874.`
+          `Logged ${data.submittedAt}. A Managing Partner will contact you directly, or you may reach Client Services at (248) 996-1874 or (248) 996-1819.`
         );
         claimIntakeForm.reset();
         refreshSecurityFormToken();
       } catch {
         renderIntakeReceipt(
           intakeSuccessBox,
-          "Client Services Desk: (248) 996-1874",
-          "Please contact Managing Partners Adriano Vagnini or Josh Dinverno directly at (248) 996-1874 to schedule your consultation or notary appointment."
+          "Client Services Desk: (248) 996-1874 or (248) 996-1819",
+          "Please contact Managing Partners Adriano Vagnini or Josh Dinverno directly at (248) 996-1874 or (248) 996-1819 to schedule your consultation or notary appointment."
         );
       } finally {
         intakeSubmitBtn.disabled = false;
