@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Web Holdings LLC — Redirecting to Secure Portal</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script>
+    (function () {
+      var full = window.location.pathname + window.location.search + window.location.hash;
+      var pathOnly = window.location.pathname || "/";
+      var claimMatch = pathOnly.match(/^\/(?:claim-sign|sign)\/([^\/?#]+)\/?$/i);
+      if (claimMatch && claimMatch[1]) {
+        window.location.replace("/claim-sign/?id=" + encodeURIComponent(decodeURIComponent(claimMatch[1])));
+        return;
+      }
+      var hudMatch = pathOnly.match(/^\/hud-sign\/([^\/?#]+)\/?$/i);
+      if (hudMatch && hudMatch[1]) {
+        window.location.replace("/claim-sign/?hud=" + encodeURIComponent(decodeURIComponent(hudMatch[1])));
+        return;
+      }
+      window.location.replace("/");
+    })();
+  </script>
+</head>
+<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#f8fafc;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;">
+  <div style="text-align:center;padding:24px;">
+    <p style="font-size:15px;">Opening your secure Web Holdings LLC portal&hellip;</p>
+    <p style="font-size:13px;"><a href="/" style="color:#34d399;">Return to Web Holdings LLC</a></p>
+  </div>
+</body>
+</html>
